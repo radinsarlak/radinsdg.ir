@@ -1,0 +1,343 @@
+/* font */
+
+@font-face{
+    font-family: yekan;
+    src: url("Yekan.ttf");
+}
+
+@font-face{
+    font-family: vazir;
+    src: url('Vazir.ttf');
+}
+
+/* styles */
+
+body{
+    background: url('Code.jpg');
+    color: white;
+    font-size: 20px;
+    font-family: yekan, serif;
+    border: none;
+    outine: none;
+    direction: rtl;
+}
+
+body::selection{
+    background-color: green;
+    color: white;
+    box-shadow: 3px 3px 3px yellowgreen;
+}
+
+header{
+    font-size: 4em;
+    font-family: vazir;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 4px 4px 4px orange;
+}
+
+.search{
+    text-align: center;
+    font-family: yekan;
+}
+.search-bar{
+    font-family: yekan; 
+    text-align: center;
+    font-size: 1.2em;
+    height: 35px;
+    width: 50%;
+    border: 2px solid green;
+    outline: 2px solid gold;
+    border-radius: 30px;
+    margin-left: 3px;
+}
+.search-btn{
+    font-family: yekan;
+    padding: 10px 40px;
+    font-size: 1.35em;
+    text-align: center;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    border: 2.5px solid yellowgreen;
+}
+
+.hlink a{
+    display: block;
+    text-decoration: none;
+    font-family: yekan;
+    padding: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+}
+
+.hlink{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.lmaker{
+    width: 33%;
+    margin: 10px 3px;
+    border-radius: 30px;
+    background: gray;
+    border: 3px solid black;
+    transition: background-color 0.5s ease-in-out;
+    transition: border 0.5s ease-in-out;
+}
+
+.lmaker:hover{
+    background-color: black;
+    border: 3px solid gray; 
+}
+
+.home{
+    width: 33%;
+    margin: 10px;
+    border-radius: 30px;
+    background: skyblue;
+    border: 3px solid blue;
+    transition: background-color 0.5s ease-in-out;
+    transition: border 0.5s ease-in-out;
+}
+
+.home:hover{
+    background-color: blue;
+    border: 3px solid skyblue; 
+}
+
+.sign{
+    width: 33%;
+    margin: 10px;
+    border-radius: 30px;
+    background: orange;
+    border: 3px solid red;
+    transition: background-color 0.5s ease-in-out;
+    transition: border 0.5s ease-in-out;
+    
+}
+
+.sign:hover{
+    background-color: red;
+    border: 3px solid orange; 
+}
+
+
+.calink{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.calink a{
+    display: block;
+    text-decoration: none;
+    font-family: yekan;
+    padding: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+}
+
+.course{
+    width: 33%;
+    margin: 10px;
+    border-radius: 30px;
+    background: yellowgreen;
+    border: 3px solid green;
+    transition: background-color 0.5s ease-in-out;
+    transition: border 0.5s ease-in-out;
+}
+
+.course:hover{
+    background-color: green;
+    border: 3px solid yellowgreen; 
+}
+
+
+.ai{
+    width: 33%;
+    margin: 10px;
+    border-radius: 30px;
+    background: purple;
+    border: 3px solid deeppink;
+    transition: background-color 0.5s ease-in-out;
+    transition: border 0.5s ease-in-out;
+}
+
+.ai:hover{
+    background-color: deeppink;
+    border: 3px solid purple; 
+}
+
+
+.about{
+     display: block;
+ }
+
+strong{
+    font-size: 2em;
+    text-align: center;
+}
+
+p{
+    font-size: 1.3em;
+    background: black;
+    padding: 15px;
+    border-radius: 16px;
+}
+
+span{
+    color: gold;
+    font-weight: bold;
+    font-family: vazir;
+}
+
+.ilink{
+    border-radius: 50px 50px 0px 50px;
+    margin: 10px;
+}
+
+.cmenu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: white;
+    background-color: #333;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    font-family: yekan;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.cmenu:hover {
+    background-color: white;
+    color: #333;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+.cmenu:active {
+    transform: scale(0.95);
+}
+
+.ct {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background-color: red;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    font-family: yekan;
+    border: 2px solid yellow;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border-radius: 250px;
+    text-decoration: none;
+}
+
+.ct:hover {
+    background-color: yellow;
+    color: #333;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+.ct:active {
+    transform: scale(0.95);
+}
+
+.m1a{
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    background-color: seagreen;
+    padding: 15px;
+    border-radius: 30px; 
+    border: 3px solid white;
+}
+
+
+.m2a{
+    position: fixed;
+    top: 170px;
+    right: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    background-color: seagreen;
+    padding: 15px;
+    border-radius: 30px; 
+    border: 3px solid white;
+}
+
+.m3a{
+    position: fixed;
+    top: 240px;
+    right: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    background-color: seagreen;
+    padding: 15px;
+    border-radius: 30px; 
+    border: 3px solid white;
+}
+
+.user-info{
+    font-family: vazir; 
+    text-align: center;
+    font-size: 1.4em;
+    width: 50%;
+    border: 6px solid yellowgreen;
+    outline: none;
+    border-radius: 30px;
+    margin-left: 3px;
+    transition: border-style 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+.user-info:focus{
+    border-style: inset;
+    border-color: red;
+}
+
+.aparat-channel{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: orange;
+    text-shadow: 3px 3px 3px white;
+    font-size: 2em;
+    font-family: yekan;
+}
+
+.download{
+    font-size: 1.4em;
+    background: orange;
+    border: 3px solid red;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    margin: 50px;
+    padding: 20px;
+    transition: background 0.4s ease-in-out, border 0.4s ease-in-out;
+}
+
+.download:hover{
+    background: red;
+    border: 3px solid orange;
+}

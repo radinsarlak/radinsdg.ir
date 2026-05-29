@@ -1,0 +1,138 @@
+
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>Radinsdg</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="radinsdg.png" type="image/png">
+    <link rel="apple-touch-icon" href="radinsdg.png">
+    <style>
+        #custom-alert {
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          min-width: 260px;
+          padding: 14px 22px;
+          background: #222;
+          color: #fff;
+          border-radius: 12px;
+          font-size: 15px;
+          text-align: center;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+          opacity: 0;
+          transition: opacity 0.5s ease, transform 0.5s ease;
+          z-index: 9999;
+          pointer-events: none;
+        }
+#custom-alert.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+    </style>
+</head>
+<body onclick="globalUserName()">
+    <div>
+    <details class="psitionmenu">
+            <summary class="cmenu">حمایت</summary>
+            <div class="mpotions">
+                <a href="help.html" class="m1a">برای حمایت از ما ، کلیک کنید</a>
+            </div>
+    </details> 
+    </div>
+    <header>ℜ𝔞𝔡𝔦𝔫𝔰𝔡𝔤</header>  
+    <br>    
+    <div class="link">             
+        <a class="ct" href="https://web.bale.ai/@artinhdg">CT</a>
+        <form id="searchForm" class="search" dir="rtl">
+        <input type="text" class="search-bar" id="searchHome" placeholder="جستجو کنید" onkeyup="searchItems()">
+        <button class="search-btn" title="Refresh">تازه سازی</button>
+      </form>
+        <br>
+        <div class="hlink">
+          <a href="index.html" class="home item">خانه</a>
+          <a href="sign.html" class="sign item" id="authBtn">ورود حساب</a>
+          <a href="help.html" class="lmaker item">حمایت از ما</a>
+        </div>
+      <div class="calink">
+            <a href="course.html" class="course item">دوره ها</a>
+            <a href="ai.html" class="ai item">دستیار هوشمند</a>
+        </div>
+    </div>  
+    <br>
+    <div class="about item">
+        <strong class="item">درباره ما</strong>
+        <p class="item">
+            فعالیت ما در این وب سایت برای این است که شما بتوانید به آسودگی برنامه نویسی را از بر شوید. در جدول زیر
+            میزان استفاده مردمی از هر زبان برنامه نویسی در گذشته تا حال داده شده است. با مشاهده آن جدول میتوانید راحت تر
+            تصمیم خود را در رابطه با انتخاب زبانی که به آن علاقه و استعداد دارید ، بگیرید و آن را از همین وب سایت دانلود کرده
+            و یا به صورت آنلاین،مشاهده نمایید. تمامی دوره های موجود در این وب سایت را <span>رادین سرلک</span> ضبت کرده
+            و شما میتوانید اغلب دوره ها را رایگان استفاده نمایید. اما باید گفته شود که ممکن است در پی گذشت زمانی برخی از دوره
+           ها ،از رایگان درآیند و شما بایستی پول اندکی را برای مشاهده دوره ها بپردازید. برای مثال ممکن است ۵۰ نا ۸۰ هزار تومان شوند
+           سپس پی گذشت ماه ها ۱۰۰ تا ۱۵۰ هزار تومان ،این پول ها بسیار اندک هستند تا شما برنامه نویسان وسعت پیدا کنید و آینده ایی
+            مدرن تر برای کشورتان سازید. اینک ،تمامی دوره ها رایگان میباشند زیرا کشور الان در جنگ به کمک ما نیاز دارد ،پس زود بیایید            
+            و آموزش ببینید ،خواهشمند است که بگویم لطفا هر دوره را که میخواهید ببینید در پیوی من پیام دهید ،برای این کار میتوانید دکمه
+            شناور پایین صفحه را زده و منتظر بمانیید.من در پیوی شما را راهنمایی کرده و به یاد میسپارم که چه کسانی در کمک رسانی به آینده
+            کشورشان ،به بنده حقیر کمک کردند. همچنین می توانید با گفت و گو با ما ، ایرادات را گفته و به من کمک کنید تا مشکل آن را بر طرف کنم. کانال ما را نیز در آپارات دنبال کنید، فعالیت ما آنجا نیز میباشد. در ضمن : سرچ بار به صورت onkeyup ( خودکار ) است و نیازی به زدن جستجو نیست.<br>
+            دوستدار شما <span>رادین سرلک</span> سازنده این وب سایت.
+        </p>
+    </div>
+    <strong class="item">ما را دنبال کنید</strong>
+    <div class="fallow-us">
+        <p class="item">لینک کانال ما در آپارات ، کلیک کنید</p>
+        <a href="https://aparat.com/radinsarlak" class="aparat-channel item">کانال رادین کد‌نویس</a>
+    </div>    
+
+    <!-- لینک کردن فایل جاوااسکریپت -->
+
+<script>
+    // تغییر از .signup به #authBtn
+    let signupBtn = document.getElementById("authBtn");
+
+    if (localStorage.getItem("signedUp") === "true") {
+        let userName = localStorage.getItem("su_name");
+        
+        signupBtn.innerText = "خروج حساب"
+        signupBtn.href = "#"; // لینک را غیرفعال می‌کنیم
+        
+        signupBtn.onclick = function (e) {
+            e.preventDefault(); // جلوگیری از پرش صفحه
+            localStorage.removeItem("signedUp");
+            localStorage.removeItem("su_name");
+            localStorage.removeItem("su_user");
+            location.reload();
+        };
+    }
+</script>
+<script>
+    window.alert = function(message) {
+    let alertBox = document.getElementById("custom-alert");
+
+    if (!alertBox) {
+        alertBox = document.createElement("div");
+        alertBox.id = "custom-alert";
+        document.body.appendChild(alertBox);
+    }
+
+    alertBox.textContent = message;
+    alertBox.classList.add("show");
+
+    setTimeout(() => {
+      alertBox.classList.remove("show");
+    }, 5000);
+  };
+</script>
+<script>
+    if (localStorage.getItem("signedUp") === "true") {
+        let userName = localStorage.getItem("su_user");
+        alert(`Welcome Back ${userName}`)
+    } else {
+        unknownUser = Math.floor(Math.random() * 10000000)
+        alert(`Welcome to Radinsdg, User : u_${unknownUser}`)
+    }
+</script>
+<script src="search.js"></script>
+</body>
+</html>

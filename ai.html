@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radinsdg ai</title>
+    <link rel="stylesheet" href="ai.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="radinsdg.png" type="image/png">
+    <link rel="apple-touch-icon" href="radinsdg.png">
+</head>
+<body>
+
+    <div class="background-animation"></div>
+
+    <div class="container">
+        <header>
+            <h1>Radinsdg<i class="fa-solid fa-robot"></i></h1>
+            <p>دستیار هوش مصنوعی رادین اس دی جی</p>
+        </header>
+
+        <div class="chat-box" id="chatBox">
+            <!-- پیام خوش‌آمدگویی اولیه -->
+            <div class="message ai-message">
+                <span>سلام، من دستیار هوشمند هستم هر سوالی که داری در خدمتم</span>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Type your message here..." autocomplete="off">
+            <button id="sendBtn"><i class="fa-solid fa-paper-plane">S</i></button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userInput = document.getElementById('userInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const chatBox = document.getElementById('chatBox');
+
+            // بانک اطلاعاتی کلیدواژه‌ها و پاسخ‌ها
+            const knowledgeBase = [
+                { keywords: ['سلام', 'هی', 'درود', 'علیک'], response: "سلام، خوش اومدی. چطور میتونم کمکت کنم؟" },
+                { keywords: ['نام', 'اسم'], response: "من دستیار هوشمند رادین اس دی جی هستم" },
+                { keywords: ['ساعت'], response: `العان ساعت ${new Date().toLocaleTimeString()}` },
+                { keywords: ['تاریخ'], response: `امروز ${new Date().toLocaleDateString()}` },
+                { keywords: ['ایران', 'تهران'], response: "ایران یک کشور زیبا و تاریخی است" },
+                { keywords: ['هوش مصنوعی', 'ai'], response: "هوش مصنوعی یک وسیله است برای انسان" },
+                { keywords: ['ممنون', 'مرسی'], response: "خواهش میکنم وظیفه است" },
+                { keywords: ['بدرود', 'خداحافظ'], response: "خداحافظ، روز خوبی داشته باشی" }
+            ];
+
+            // تابع اضافه کردن پیام کاربر (فوری)
+            function addUserMessage(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', 'user-message'); // استفاده از کلاس user-message از CSS
+                messageDiv.textContent = text;
+                chatBox.appendChild(messageDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+
+            // تابع تایپ کردن پیام هوش مصنوعی (کلمه به کلمه)
+            function addAiMessage(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', 'ai-message'); // استفاده از کلاس ai-message از CSS
+                
+                // ایجاد یک span برای نگهداری متن داخل پیام
+                const textSpan = document.createElement('span');
+                textSpan.classList.add('typing-effect'); // اضافه کردن کلاس افکت تایپ برای نشانگر چشمک‌زن
+                messageDiv.appendChild(textSpan);
+                
+                chatBox.appendChild(messageDiv);
+                
+                let index = 0;
+                const speed = 30; // سرعت تایپ (میلی‌ثانیه)
+
+                function typeWriter() {
+                    if (index < text.length) {
+                        textSpan.textContent += text.charAt(index);
+                        index++;
+                        chatBox.scrollTop = chatBox.scrollHeight; // اسکرول کردن هنگام تایپ
+                        setTimeout(typeWriter, speed);
+                    } else {
+                        // پس از اتمام تایپ، نشانگر چشمک‌زن را حذف می‌کنیم تا متن ثابت به نظر برسد
+                        textSpan.classList.remove('typing-effect');
+                    }
+                }
+
+                typeWriter();
+            }
+
+            // تابع پردازش پاسخ
+            function getBotResponse(input) {
+                const lowerInput = input.toLowerCase();
+                // جستجو در بانک اطلاعاتی
+                const match = knowledgeBase.find(entry => 
+                    entry.keywords.some(keyword => lowerInput.includes(keyword))
+                );
+                
+                return match ? match.response : "متاسفم! میتونی واضح تر بگی؟";
+            }
+
+            // تابع مدیریت ارسال پیام
+            function handleSend() {
+                const text = userInput.value.trim();
+                
+                if (text !== "") {
+                    // ۱. نمایش پیام کاربر
+                    addUserMessage(text);
+                    
+                    // ۲. پاک کردن ورودی
+                    userInput.value = '';
+
+                    // ۳. محاسبه و نمایش پاسخ ربات با کمی تاخیر
+                    setTimeout(() => {
+                        const botResponse = getBotResponse(text);
+                        addAiMessage(botResponse);
+                    }, 600);
+                }
+            }
+
+            // رویداد کلیک دکمه
+            sendBtn.addEventListener('click', handleSend);
+
+            // رویداد زدن دکمه Enter در کادر ورودی
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleSend();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

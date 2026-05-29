@@ -1,0 +1,22 @@
+
+{
+  "name": "Radinsdg",
+  "short_name": "RG",
+  "description": "Radinsdg website",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff8c00",
+  "icons": [
+    {
+      "src": "radinsdg.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "radinsdg.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+
+
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="radinsdg.png" type="image/png">
+    <link rel="apple-touch-icon" href="radinsdg.png">
+    <title>ورود حساب</title>
+</head>
+<body>
+    <header>ورود حساب</header>
+<br><br>
+
+<div style="display:flex; justify-content:center;">
+    <div style="background:rgba(0,0,0,0.6); padding:30px; border-radius:15px;">
+
+        <input class="user-info" type="text" id="su_name" placeholder="نام و نام خانوادگی"
+        style="display:block;text-align: center; margin-bottom:15px; width:260px; height:40px; font-size:18px;" align="center">
+
+        <input class="user-info" type="text" id="su_user" placeholder="نام کاربری"
+        style="display:block;text-align: center; margin-bottom:15px; width:260px; height:40px; font-size:18px;" align="center">
+
+        <input class="user-info" type="password" id="su_pass" placeholder="رمز عبور"
+        style="display:block;text-align: center; margin-bottom:20px; width:260px; height:40px; font-size:18px;" align="center">
+
+        <input class="user-info" type="number" id="su_num" placeholder="شماره گوشی"
+        style="display:block;text-align: center; margin-bottom:20px; width:260px; height:40px; font-size:18px;" align="center">
+
+        <input class="user-info" type="number" id="su_age" placeholder="سن شما : اختیاری"
+        style="display:block;text-align: center; margin-bottom:20px; width:260px; height:40px; font-size:18px;" align="center">
+
+        <div class="item" onclick="signupUser()" style="cursor:pointer;" align="center">ثبت نام یا ورود</div>
+
+        <h3 id="signupMsg" style="color:orange; margin-top:15px;" align="center"></h3>
+
+    </div>
+</div>
+<script src="sign.js"></script>
+</body>
+</html>
