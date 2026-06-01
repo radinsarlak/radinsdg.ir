@@ -46,9 +46,9 @@ header{
     font-size: 1.2em;
     height: 35px;
     width: 50%;
+    border-radius: 30px;
     border: 2px solid green;
     outline: 2px solid gold;
-    border-radius: 30px;
     margin-left: 3px;
 }
 .search-btn{
